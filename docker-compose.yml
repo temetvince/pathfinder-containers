@@ -1,5 +1,3 @@
-version: "3.9"
-
 services:
   pfdb:
     image: bianjp/mariadb-alpine:latest
