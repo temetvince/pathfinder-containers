@@ -3,7 +3,7 @@
 [![Docker Image Master Branch](https://github.com/goryn-clade/pathfinder-containers/actions/workflows/docker-image.yml/badge.svg?branch=master)](https://github.com/goryn-clade/pathfinder-containers/actions/workflows/docker-image.yml)
 
 
-A fork of techfreak's [Pathfinder-container](https://gitlab.com/techfreak/pathfinder-container/) docker-compose solution for Pathfinder that is designed to work with Goryn Clade's [Pathfinder](https://github.com/goryn-clade/pathfinder/) fork, using [Traefik](https://traefik.io/) as a reverse proxy to expose the docker container.
+A fork of techfreak's [Pathfinder-container](https://gitlab.com/techfreak/pathfinder-container/) docker-compose solution for Pathfinder that is designed to work with ~~Goryn Clade's [Pathfinder](https://github.com/goryn-clade/pathfinder/)~~ temetvince's [Pathfinder](https://github.com/temetvince/pathfinder) fork, using [Traefik](https://traefik.io/) as a reverse proxy to expose the docker container.
 
 1. [Installation](#installation)
 1. [Using Traefik](#using-traefik)
@@ -41,7 +41,7 @@ A fork of techfreak's [Pathfinder-container](https://gitlab.com/techfreak/pathfi
   
 1. **Clone the repo**
     ```shell
-    git clone --recurse-submodules  https://github.com/goryn-clade/pathfinder-containers.git
+    git clone --recurse-submodules  https://github.com/temetvince/pathfinder-containers.git
     ```
 
 1. **Create a *.env* file (copy .env.example) and make sure every config option has an entry.**
