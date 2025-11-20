@@ -77,7 +77,7 @@ services:
       - pf-socket
     restart: always
   traefik:
-    image: traefik:v2.3
+    image: traefik:latest
     container_name: traefik
     command:
       - "--log.level=ERROR"
@@ -89,8 +89,8 @@ services:
       - "--certificatesresolvers.letsencrypt.acme.httpchallenge=true"
       - "--certificatesresolvers.letsencrypt.acme.httpchallenge.entrypoint=web"
       - "--certificatesresolvers.letsencrypt.acme.storage=/letsencrypt/acme.json"
-      # Remove below line when ready for production
-      - "--certificatesresolvers.letsencrypt.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory" # Remove this line only
+      # Remove the staging CA server line when you are ready for production to request real certs
+      # - "--certificatesresolvers.letsencrypt.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory"
       - "--certificatesresolvers.letsencrypt.acme.email=${LE_EMAIL}"
     ports:
       - "80:80"
@@ -103,6 +103,11 @@ services:
       - /etc/localtime:/etc/localtime:ro
     networks:
       - web
+    healthcheck:
+      test: ["CMD-SHELL", "curl -sS --fail http://localhost:8080 || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
     restart: always
 
 volumes:
